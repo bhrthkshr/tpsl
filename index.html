@@ -40,11 +40,11 @@
             }
             // document.location = `googlechrome://navigate?url=/${finalURL}`;
 
-            // if(windowObjectReference == null || windowObjectReference.closed) {
-            //     windowObjectReference = window.open(finalURL);
-            // } else {
-            //     windowObjectReference.focus();
-            // };
+            if(windowObjectReference == null || windowObjectReference.closed) {
+                windowObjectReference = window.open(finalURL);
+            } else {
+                windowObjectReference.focus();
+            };
         }
 
         function vialoc(opt) {

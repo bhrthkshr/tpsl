@@ -23,6 +23,8 @@
     <input type="text" id="urlInput">
     <button onclick="openinchrome(false)">open in chrome</button>
     <button onclick="openinchrome(true)">open in chrome2</button>
+    <button onclick="vialoc(false)">via loc1</button>
+    <button onclick="vialoc(true)">via loc2</button>
   </div>
 
     <script>
@@ -30,18 +32,38 @@
             var windowObjectReference = null; // global variable
 
             var url = document.getElementById("urlInput").value;
-            // document.location = `googlechrome://navigate?url=/${url}`;
             var finalURL = "";
             if(opt){
                 finalURL = `intent://${url};scheme=http;package=com.android.chrome;end`
             }else{
                finalURL = `intent://${url};scheme=http;action=android.intent.action.VIEW;end;`
             }
-            if(windowObjectReference == null || windowObjectReference.closed) {
-                windowObjectReference = window.open(url);
-            } else {
-                windowObjectReference.focus();
-            };
+            // document.location = `googlechrome://navigate?url=/${finalURL}`;
+
+            // if(windowObjectReference == null || windowObjectReference.closed) {
+            //     windowObjectReference = window.open(finalURL);
+            // } else {
+            //     windowObjectReference.focus();
+            // };
+        }
+
+        function vialoc(opt) {
+            var windowObjectReference = null; // global variable
+
+            var url = document.getElementById("urlInput").value;
+            var finalURL = "";
+            if(opt){
+                finalURL = `intent://${url};scheme=http;package=com.android.chrome;end`
+            }else{
+               finalURL = `intent://${url};scheme=http;action=android.intent.action.VIEW;end;`
+            }
+            document.location = `${finalURL}`;
+
+            // if(windowObjectReference == null || windowObjectReference.closed) {
+            //     windowObjectReference = window.open(finalURL);
+            // } else {
+            //     windowObjectReference.focus();
+            // };
         }
         </script>
         

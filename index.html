@@ -25,9 +25,20 @@
     <button onclick="openinchrome(true)">open in chrome2</button>
     <button onclick="vialoc(false)">via loc1</button>
     <button onclick="vialoc(true)">via loc2</button>
+
+    <button onclick="viaAnchor(true)">via Anchor tag</button>
+    
   </div>
 
     <script>
+
+        function viaAnchor(){
+            let a= document.createElement('a');
+            a.target= '_blank';
+            a.href=  `intent://${url};scheme=http;package=com.android.chrome;end`;
+            a.click();
+        }
+
         function openinchrome(opt) {
             var windowObjectReference = null; // global variable
 
@@ -41,7 +52,7 @@
             // document.location = `googlechrome://navigate?url=/${finalURL}`;
 
             if(windowObjectReference == null || windowObjectReference.closed) {
-                // windowObjectReference = window.open(finalURL);
+                windowObjectReference = window.open(finalURL, '_blank');
                 window.location = finalURL;
                 // window.location = 'intent:https://example.com#Intent;end';
             } else {

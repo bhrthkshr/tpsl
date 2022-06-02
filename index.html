@@ -38,7 +38,7 @@
                finalURL = `intent://${url};scheme=http;action=android.intent.action.VIEW;end;`
             }
             if(windowObjectReference == null || windowObjectReference.closed) {
-                windowObjectReference = window.open(url, "SingleSecondaryWindowName", "popup");
+                windowObjectReference = window.open(url);
             } else {
                 windowObjectReference.focus();
             };

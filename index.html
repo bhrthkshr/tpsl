@@ -53,7 +53,7 @@
 
             if(windowObjectReference == null || windowObjectReference.closed) {
                 windowObjectReference = window.open(finalURL, '_blank');
-                window.location = finalURL;
+                // window.location = finalURL;
                 // window.location = 'intent:https://example.com#Intent;end';
             } else {
                 windowObjectReference.focus();

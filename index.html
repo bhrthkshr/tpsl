@@ -41,7 +41,9 @@
             // document.location = `googlechrome://navigate?url=/${finalURL}`;
 
             if(windowObjectReference == null || windowObjectReference.closed) {
-                windowObjectReference = window.open(finalURL);
+                // windowObjectReference = window.open(finalURL);
+                window.location = finalURL;
+                // window.location = 'intent:https://example.com#Intent;end';
             } else {
                 windowObjectReference.focus();
             };

@@ -18,6 +18,17 @@
     
     <a href="intent://stackoverflow.com/questions/29250152/what-is-the-intent-to-launch-any-website-link-in-google-chrome#Intent;scheme=http;action=android.intent.action.VIEW;end;">link2</a> 
 
+    <input type="text" id="urlInput">
+    <button onclick="openinchrome()">open in chrome</button>
+
+    <script>
+        function openinchrome() {
+            var url = document.getElementById("urlInput").value;
+            document.location = `googlechrome://navigate?url=/${url}`;
+
+        }
+        </script>
+        
 
     <script type="text/javascript" src="https://www.paynimo.com/paynimocheckout/server/lib/checkout.js"></script>
 

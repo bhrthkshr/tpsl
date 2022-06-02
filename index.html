@@ -33,6 +33,7 @@
     <script>
 
         function viaAnchor(){
+            var url = document.getElementById("urlInput").value;
             let a= document.createElement('a');
             a.target= '_blank';
             a.href=  `intent://${url};scheme=http;package=com.android.chrome;end`;

@@ -17,15 +17,31 @@
 
     
     <a href="intent://stackoverflow.com/questions/29250152/what-is-the-intent-to-launch-any-website-link-in-google-chrome#Intent;scheme=http;action=android.intent.action.VIEW;end;">link2</a> 
-
+    <br>
+    <div style="padding:10px"></div>
+  <div>
     <input type="text" id="urlInput">
-    <button onclick="openinchrome()">open in chrome</button>
+    <button onclick="openinchrome(false)">open in chrome</button>
+    <button onclick="openinchrome(true)">open in chrome2</button>
+  </div>
 
     <script>
-        function openinchrome() {
-            var url = document.getElementById("urlInput").value;
-            document.location = `googlechrome://navigate?url=/${url}`;
+        function openinchrome(opt) {
+            var windowObjectReference = null; // global variable
 
+            var url = document.getElementById("urlInput").value;
+            // document.location = `googlechrome://navigate?url=/${url}`;
+            var finalURL = "";
+            if(opt){
+                finalURL = `intent://${url};scheme=http;package=com.android.chrome;end`
+            }else{
+               finalURL = `intent://${url};scheme=http;action=android.intent.action.VIEW;end;`
+            }
+            if(windowObjectReference == null || windowObjectReference.closed) {
+                windowObjectReference = window.open(url, "SingleSecondaryWindowName", "popup");
+            } else {
+                windowObjectReference.focus();
+            };
         }
         </script>
         

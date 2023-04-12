@@ -52,9 +52,20 @@
       <a href="amzn://apps/android?app=shopping" target="_blank" > amz-deep-android </a>
       <br /><div style="padding:10px"></div>
         <a href="amzn://apps/ios?app=shopping" target="_blank" > amz-deep-ios </a>
+    
+    <button onclick="amzdeep()"> deep link via button</button>
+    
   </div>
 
     <script>
+        
+        function amzdeep(){
+             var windowObjectReference = null; // global variable
+            var link = "com.amazon.mobile.shopping.web://www.amazon.in"
+              if(windowObjectReference == null || windowObjectReference.closed) {
+                windowObjectReference = window.open(link, '_blank');
+              }
+        }
 
         function viaAnchor(){
             var url = document.getElementById("urlInput").value;
